@@ -17,7 +17,10 @@ export class AppComponent {
     new Task('Add README file to last few Angular repos on GitHub', 2),
     new Task('Find the bugs in James projects', 1)
   ];
-  selectedTask: Task = this.tasks[0];
+  finishedEditing() {
+    this.selectedTask = null;
+  }
+  selectedTask = null;
   editTask(clickedTask){
     this.selectedTask = clickedTask;
   }
