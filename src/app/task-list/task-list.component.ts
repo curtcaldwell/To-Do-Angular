@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task.model';
-import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
@@ -9,6 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class TaskListComponent {
   @Input() childTaskList: Task[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonClicked(taskToEdit: Task) {
+    this.clickSender.emit(taskToEdit);
+  }
 
   priorityColor(currentTask){
     if (currentTask.priority === 3){
@@ -18,10 +22,6 @@ export class TaskListComponent {
     } else {
       return "bg-info";
     }
-  }
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }
