@@ -1,0 +1,3 @@
+<ul>
+  <li [class]="priorityColor(selectedTask)" *ngFor="let selectedTask of childTaskList">{{selectedTask.description}} <button (click)="editTask(selectedTask)">Edit!</button></li>
+</ul>

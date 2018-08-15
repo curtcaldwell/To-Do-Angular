@@ -11,9 +11,7 @@
     <input type="text" name="user" [(ngModel)]="userName">
   </form>
   <h3>{{currentFocus}}</h3>
-  <ul>
-    <li [class]="priorityColor(selectedTask)" *ngFor="let selectedTask of tasks">{{selectedTask.description}} <button (click)="editTask(selectedTask)">Edit!</button></li>
-  </ul>
+<app-task-list [childTaskList]="tasks"></app-task-list>
   <div *ngIf="selectedTask">
     <h3>{{selectedTask.description}}</h3>
     <p>Task Complete? {{selectedTask.done}}</p>
